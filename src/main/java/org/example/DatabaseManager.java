@@ -12,7 +12,6 @@ public class DatabaseManager {
     private Properties properties = new Properties();
 
     private DatabaseManager() {
-        // This loads the db.properties file from your src/main/resources folder
         try (InputStream is = getClass().getClassLoader().getResourceAsStream("db.properties")) {
             if (is == null) {
                 throw new RuntimeException("Could not find db.properties file!");
@@ -30,7 +29,6 @@ public class DatabaseManager {
         return instance;
     }
 
-    // Every time you need to talk to the DB, you call this method.
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(
                 properties.getProperty("db.url"),

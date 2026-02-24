@@ -12,10 +12,8 @@ public class EmployeeDepartmentDTO {
     private String name;
     private String email;
     private double salary;
-    private String departmentName; // From the departments table
+    private String departmentName;
     private String location;
-
-        // --- Getters and Setters (The "Doors" to your data) ---
 
         public int getId() { return id; }
         public void setId(int id) { this.id = id; }
@@ -35,8 +33,6 @@ public class EmployeeDepartmentDTO {
         public String getLocation() { return location; }
         public void setLocation(String location) { this.location = location;}
 
-    //------------------------
-
     public List<EmployeeDepartmentDTO> getAllEmployeesWithDeptInfo() {
         List<EmployeeDepartmentDTO> list = new ArrayList<>();
         String query = "SELECT e.id, e.name, e.email, e.salary, d.name AS dept_name, d.location " +
@@ -49,13 +45,11 @@ public class EmployeeDepartmentDTO {
 
             while (rs.next()) {
                 EmployeeDepartmentDTO dto = new EmployeeDepartmentDTO();
-                // Mapping Employee data
                 dto.setId(rs.getInt("id"));
                 dto.setName(rs.getString("name"));
                 dto.setEmail(rs.getString("email"));
                 dto.setSalary(rs.getDouble("salary"));
 
-                // Mapping Department data from the same row!
                 dto.setDepartmentName(rs.getString("dept_name"));
                 dto.setLocation(rs.getString("location"));
 

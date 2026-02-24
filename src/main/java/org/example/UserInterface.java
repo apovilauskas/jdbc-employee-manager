@@ -55,7 +55,7 @@ public class UserInterface {
                 case 3: viewAllDepartments(); break;
                 case 4: updateDepartment(); break;
                 case 5: deleteDepartment(); break;
-                case 6: inDeptMenu = false; break; // Returns to Main Menu
+                case 6: inDeptMenu = false; break;
                 default: System.out.println("Invalid choice. Try again.");
             }
         }
@@ -74,7 +74,7 @@ public class UserInterface {
                 case 4: updateEmployee(); break;
                 case 5: transferAndPromote(); break;
                 case 6: deleteEmployee(); break;
-                case 7: inEmpMenu = false; break; // Returns to Main Menu
+                case 7: inEmpMenu = false; break;
                 default: System.out.println("Invalid choice. Try again.");
             }
         }
@@ -117,8 +117,8 @@ public class UserInterface {
             scanner.nextLine();
             return choice;
         } catch (InputMismatchException e) {
-            scanner.nextLine(); // Clear the bad input from the scanner
-            return -1; // Return an invalid choice to trigger the 'default' switch case
+            scanner.nextLine(); 
+            return -1; 
         }
     }
 
